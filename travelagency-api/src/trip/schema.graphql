@@ -1,0 +1,33 @@
+type Trip {
+  id: ID!
+  title: String!
+  text: String!
+  isPublished: Boolean!
+}
+
+input NewTrip {
+  title: String!
+  text: String!
+}
+
+input UpdateTrip {
+  id: ID!
+  title: String
+  text: String
+  isPublished: Boolean
+}
+
+type Query {
+  trips: [Trip!]!
+  trip(id: ID!): Trip
+}
+
+type Mutation {
+  createTrip(input: NewTrip!): Trip!
+  updateTrip(input: UpdateTrip!): Trip
+  deleteTrip(id: ID!): Trip
+}
+
+type Subscription {
+  tripCreated: Trip
+}
